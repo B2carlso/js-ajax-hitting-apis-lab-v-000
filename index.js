@@ -15,11 +15,11 @@ function getRepositories() {
 function displayRepositories(event, data) {
     const jsonRepos = JSON.parse(this.responseText);
     console.log(jsonRepos)
-    const repoList = `<ul>${jsonRepos.map( r=> '<li>' + r.name + 
+    const repoList = `<ul>${jsonRepos.map( r=> '<li>' + r.name +
                                                 ' - <a href="' + r.html_url + '">' + r.html_url + '</a>' +
-                                                ' - <a href="#" data-repository="' + r.name + '" data-username="'+ r.owner.login + 
-                                                '" onclick="getCommits(this)">Get Commits</a>' + 
-                                                '- <a href="#" data-repository="' + r.name + '" data-username="'+ r.owner.login + 
+                                                ' - <a href="#" data-repository="' + r.name + '" data-username="'+ r.owner.login +
+                                                '" onclick="getCommits(this)">Get Commits</a>' +
+                                                '- <a href="#" data-repository="' + r.name + '" data-username="'+ r.owner.login +
                                                 '" onclick="getBranches(this)">Get Branches</a></li>'
                                             ).join('')}</ul>`;
     document.getElementById("repositories").innerHTML = repoList
@@ -37,8 +37,8 @@ function getCommits(el) {
 function displayCommits(event, data) {
     const jsonCommits = JSON.parse(this.responseText);
     console.log(jsonCommits);
-    const commitList = `<ul>${jsonCommits.map( c => '<li>'+ c.author.login + '-' + 
-                                                            c.commit.author.name + '-' +                                                                     c.commit.message + 
+    const commitList = `<ul>${jsonCommits.map( c => '<li>'+ c.author.login + '-' +
+                                                            c.commit.author.name + '-' +                                                                     c.commit.message +
                                                     '</li>'
                                                 ).join("")}</ul>`;
     document.getElementById("details").innerHTML = commitList;
